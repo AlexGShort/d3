@@ -34,14 +34,6 @@ function chartFactory(opts, proto = protoChart) {
         .attr('stroke', 'red')
         .attr('fill', 'none');
 
-    // chart.container.append('rect')
-    //   .attr('width', chart.container.attr('width'))
-    //   .attr('height', chart.container.attr('height'))
-    //   .attr('stroke-width', 5)
-    //   .attr('stroke', 'blue')
-    //   .attr('fill', 'white');
-
-
     return chart;
 }
 
@@ -60,12 +52,8 @@ const getRandomData= (num, limit=100) => {
 let data = [];
 d3.text('http://localhost:8000/data.csv')
   .get((err, res) => {
-    // console.log("err:", err);
-    // console.log("res within csv call:", res);
     data = res.split(",");
     data = data.map(function(d){ return +d});
-    // console.log("data within csv:", data);
-    // console.log("type of data[0]", typeof(data[0]));
 
   let chart = new chartFactory({width: 900, height: 800, margin: {left: 40, right: 20, top: 50, bottom: 50}});
 
@@ -96,9 +84,6 @@ d3.text('http://localhost:8000/data.csv')
     .attr('height', d => radiusScale(d))
     .attr('width', xScale.bandwidth())
     .style('fill', (d, i) => colorScale(i));
-    // .transition()
-    // .duration(2000)
-    // .attr('cx', d => d / 3);
 
   chart.container.append('g')
     .attr('id', 'xaxis')
