@@ -14,7 +14,6 @@ const protoChart = {
 
 function chartFactory(opts, proto = protoChart) {
     const chart = Object.assign({}, proto, opts);
-    console.log("chart.target", chart.target);
     chart.svg = d3.select(`${chart.target}`)
       .append('svg')
       .attr('id', chart.id || 'chart')
