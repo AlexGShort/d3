@@ -1,6 +1,6 @@
 'use strict';
 
-const protoChart = {
+var protoChart = {
     target: "body",
     width: window.innerWidth,
     height: window.innerHeight,
@@ -13,7 +13,13 @@ const protoChart = {
 };
 
 function chartFactory(opts, proto = protoChart) {
-    const chart = Object.assign({}, proto, opts);
+    var chart = Object.assign({}, proto, opts);
+    let target = d3.select(`${chart.target}`).node();
+    console.log("target:", target);
+    console.log("target width:", target.offsetWidth || chart.width);
+    console.log("target height:", target.offsetHeight || chart.height);
+    chart.width = target.offsetWidth || chart.width;
+    chart.height = target.offsetHeight || chart.height;
     chart.svg = d3.select(`${chart.target}`)
       .append('svg')
       .attr('id', chart.id || 'chart')
@@ -27,6 +33,9 @@ function chartFactory(opts, proto = protoChart) {
       .attr('width', chart.width - chart.margin.left - chart.margin.right)
       .attr('height', chart.height - chart.margin.top - chart.margin.bottom)
       .attr('transform', `translate(${chart.margin.left}, ${chart.margin.top})`);
+    chart.container.width = chart.container.attr('width');
+    chart.container.height = chart.container.attr('height');
+    chart.container.transform = chart.container.attr('transform');
 
     return chart;
 }

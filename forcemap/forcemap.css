@@ -1,0 +1,9 @@
+circle {
+  fill: steelblue;
+}
+
+text {
+  cursor: pointer;
+  text-decoration: underline;
+  fill: blue;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="forcemap.css">
+  <title>D3 Force Map</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.js"></script>
+  <script src="https://d3js.org/d3-force.v1.min.js"></script>
+</head>
+<body>
+  <h1>D3 Force Map</h1>
+  <div class="control-group">
+    <button onclick="noForce()">No Force</button>
+    <button onclick="repulsion()">Repulsion</button>
+    <button onclick="gravity()">Gravity</button>
+    <button onclick="positioningWithGravity()"> Positioning with Gravity </button>
+    <button onclick="positioningWithRepulsion()"> Positioning with Repulsion</button>
+  </div>
+  <div>
+    <p id="force">None</p>
+  </div>
+
+  <script src="forcemap.js"></script>
+</body>
+</html>
